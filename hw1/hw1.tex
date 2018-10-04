@@ -1,0 +1,74 @@
+\title{CS 714 Assignment}
+\author{Ruochen Lin}
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{commath}
+\begin{document}
+\maketitle
+\pagebreak
+\section{}
+\subsection{}
+The Taylor expansions centered at $x_2$ read
+\begin{equation}\begin{split}
+u(x_1) =& u(x_2) - u'(x_2)h_1 + \dfrac12 u''(x_2)h_1^2-\dfrac16u'''(x_2)h_1^3+\dfrac1{24}u^{(4)}(x_2)h_1^4+O(h_1^5)\\
+u(x_3) =& u(x_2) + u'(x_2)h_2 + \dfrac12 u''(x_2)h_2^2+\dfrac16u'''(x_2)h_2^3+\dfrac1{24}u^{(4)}(x_2)h_2^4+O(h_2^5)\\
+u(x_4) =& u(x_2) + u'(x_2)(h_2+h_3) + \dfrac12 u''(x_2)(h_2+h_3)^2+\dfrac16u'''(x_2)(h_2+h_3)^3 \\
+	& +\dfrac1{24}u^{(4)}(x_2)(h_2+h_3)^4+O((h_2+h_3)^5) \\
+\end{split}\end{equation} 
+If we want to use function values at $\{x_i\}_{i=1}^4$ to approximate second derivative of $u$ at $x_2$, namely
+$$u''(x_2) = au(x_1)+bu(x_2)+cu(x_3)+du(x_4),$$
+we can pick $a-d$ by solving the following equations:
+\begin{equation}\begin{split}
+a+b+c+d = 0 \\
+-h_1a+h_2c+(h_2+h_3)d = 0 \\
+h_1^2a + h_2^2c+(h_2+h_3)^2d = 2 \\
+-h1_3a+h_2^3c+(h_2+h_3)^3d = 0
+\end{split}\end{equation} 
+The solutions are
+\begin{equation}\begin{split}
+a &= \dfrac{2(2h_2+h_3)}{(h_1+h_2)(h_1+h_2+h_3)} \\
+b &= \dfrac{-2h_2-h_3+h_2^2-h_1^2-h_3^2-2h_2h_3}{h_1(h_1+h_2)(h_1+h_2+h_3)}\\
+c &= \dfrac{-h_1+h_2+h_3}{h_2h_3(h_1+h_2)} \\
+d &= \dfrac{2(h_1-h_2)}{h_3(h_2+h_3)(h_1+h_2+h_3)}
+\end{split}\nonumber\end{equation} 
+
+\subsection{}
+
+
+\pagebreak
+\section{}
+\subsection{}
+
+\subsection{}
+The general solution to the differential equation, without considering boundary conditions, is a particular solution to 
+\begin{equation}
+u''+u=-e^x
+\end{equation} 
+added to the gereral solution of 
+\begin{equation}
+v''+v = 0
+\end{equation} 
+Any solution to the inhomogeneous ODE can be written in this form because the difference between any two of them must be a solution to the homogeneous ODE. $u(x)=-\dfrac12e^x$ solves the inhomogeous equation, and the general solution to $v''+v=0$ is 
+\begin{equation}\begin{split}
+v = A\sin x + B\cos x.
+\end{split}\nonumber\end{equation} 
+Plugging in the boundary conditions, we get the values of $A$ and $B$:
+$$A =B=\dfrac{e^{10}}{2\cos 10}.$$
+Thus the exact solution is 
+\begin{equation}\begin{split}
+u(x) = -\dfrac12e^x+\dfrac{e^{10}}{2\cos 10}\sin x +\dfrac{e^{10}}{2\cos 10}\cos x. 
+\end{split}\end{equation} 
+
+\pagebreak
+
+\section{}
+\subsection{}
+
+\subsection{}
+Similar to 2(b), we can assemble the exact solution by finding a particular solution to the inhomogeeous equation first, and then use the boundary condition to find the appropriate solution to the homogeneous equation to add to it. It turns out that \\
+\begin{equation}\begin{split}
+u(x) = \dfrac{\sin 4\pi x}{16\pi^2 + 1}
+\end{split}\end{equation}
+is the exact solution to the problem, because if the coefficients of $e^x$ or $e^{-x}$ are non-zero, the periodic boundary condition will be violated.
+\end{document}
