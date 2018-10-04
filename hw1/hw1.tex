@@ -27,9 +27,9 @@ h_1^2a + h_2^2c+(h_2+h_3)^2d = 2 \\
 \end{split}\end{equation} 
 The solutions are
 \begin{equation}\begin{split}
-a &= \dfrac{2(2h_2+h_3)}{(h_1+h_2)(h_1+h_2+h_3)} \\
-b &= \dfrac{-2h_2-h_3+h_2^2-h_1^2-h_3^2-2h_2h_3}{h_1(h_1+h_2)(h_1+h_2+h_3)}\\
-c &= \dfrac{-h_1+h_2+h_3}{h_2h_3(h_1+h_2)} \\
+a &= \dfrac{2(2h_2+h_3)}{h_1(h_1+h_2)(h_1+h_2+h_3)} \\
+b &= -a -c -d\\
+c &= \dfrac{2(-h_1+h_2+h_3)}{h_2h_3(h_1+h_2)} \\
 d &= \dfrac{2(h_1-h_2)}{h_3(h_2+h_3)(h_1+h_2+h_3)}
 \end{split}\nonumber\end{equation} 
 
@@ -39,7 +39,36 @@ d &= \dfrac{2(h_1-h_2)}{h_3(h_2+h_3)(h_1+h_2+h_3)}
 \pagebreak
 \section{}
 \subsection{}
-
+Suppose $u_0=u(0)$ and $u_{n+1} = u(10)$, and $f$ is indexed similarly, up to second order accuracy we have 
+\begin{equation}\begin{split}
+\dfrac1{h^2}(u_{k-1}-2u_k+u_{k+1}) + u_k = f_k,\ \ k=1,...,n
+\end{split}\end{equation}
+for points in the middle. For end points, using one-sided finite difference to approximate first-order derivative, we have 
+\begin{equation}\begin{split}
+u'(0) = -\dfrac3{2h}u_0+\dfrac2h u_1 - \dfrac1{2h}u_2 + O(h^2),
+u'(10) = \dfrac1{2h}u_{n-1} -\dfrac2h u_n +\dfrac3{2h}u_{n+1} + O(h^2).
+\end{split}\end{equation} 
+Plug these expressions to the boundary condition, we have the following matrix system:
+\begin{equation}\begin{split}
+A &=\dfrac1{h^2}
+\begin{bmatrix}
+-\dfrac{3h}2-h^2 & 2h & -\dfrac h2 \\
+1 & -2 + h^2 & 1 \\
+& 1& -2 + h^2 & 1 \\
+& & \ddots & \ddots & \ddots \\
+& & & 1 & -2 + h^2 & 1 \\
+& & & \dfrac{h}2 & -2h & \dfrac{3h}2 + h^2
+\end{bmatrix} \\
+u =& 
+\begin{bmatrix}
+u_0 \\ u_1 \\ \vdots \\ u_{n+1}
+\end{bmatrix} 
+f = 
+\begin{bmatrix}
+0 \\ f_1 \\ f_2 \\ \vdots \\ f_n \\ 0
+\end{bmatrix} 
+\end{split}\end{equation}
+and $Au=f$.
 \subsection{}
 The general solution to the differential equation, without considering boundary conditions, is a particular solution to 
 \begin{equation}
@@ -64,6 +93,16 @@ u(x) = -\dfrac12e^x+\dfrac{e^{10}}{2\cos 10}\sin x +\dfrac{e^{10}}{2\cos 10}\cos
 
 \section{}
 \subsection{}
+With
+\begin{equation}\begin{split}
+u(x\pm h) = u(x) \pm hu'(x) + \dfrac{h^2}2u''(x) \pm\dfrac{h^3}6 u^{(3)}+\dfrac{h^4}{24}u^{(4)}\pm\dfrac{h^5}{120}u^{(5)}+O(h^6),\\
+u(x\pm 2h) = u(x) \pm 2hu'(x) + {2h^2}u''(x) \pm\dfrac{4h^3}3 u^{(3)}+\dfrac{2h^4}{3}u^{(4)}\pm\dfrac{4h^5}{15}u^{(5)}+O(h^6),
+\end{split}\end{equation} 
+we get the following expression for second-order derivatives for $k=0,...,n$:
+\begin{equation}\begin{split}
+u''(kh) = -\dfrac1{12h^2}(u_{k-2}+u_{k+2}) + \dfrac4{3h^2}(u_{k-1}+u_{k+1})+\dfrac5{2h^2}u_k + O(h^4).
+\end{split}\end{equation}
+Utilizing the periodicity of the problem, we have $u_0 = u_{n+1}$, $u_{-1}=u_{n}$ and $u_{n+2} = u_1$, so that the expression makes sense for all $k$s. Thus we have
 
 \subsection{}
 Similar to 2(b), we can assemble the exact solution by finding a particular solution to the inhomogeeous equation first, and then use the boundary condition to find the appropriate solution to the homogeneous equation to add to it. It turns out that \\
