@@ -8,7 +8,35 @@
 \maketitle
 \pagebreak
 
+\section{}
 
-
+\section{}
+\subsection{}
+The 9-point Laplacian scheme uses the following approximation:
+\begin{equation}\begin{split}
+\nabla^2u_{ij} = \dfrac1{6h^2}[&4u_{i-1,j}+4u_{i+1,j}+4u_{i,j-1}+4u_{i,j+1}+\\
+                               &u_{i-1,j-1}+u_{i-1,j+1}+u_{i+1,j-1}+u_{i+1,j+1}-20u_{ij}].
+\end{split}\end{equation} 
+Using natural row-wise ordering, we can format the problem with the matrix equation of $Au=f$, with:
+\begin{equation}\begin{split}
+A &= \dfrac1{6h^2}\begin{bmatrix}
+T & S \\
+S & T & S \\
+  & \ddots & \ddots & \ddots \\
+  & &  S& T
+\end{bmatrix} \\
+T &= \begin{bmatrix}
+20 & -4 \\
+-4 & 20 & -4 \\
+ & \ddots & \ddots & \ddots \\
+ & & -4 & 20
+\end{bmatrix} \\
+S & = \begin{bmatrix}
+-4 & -1 \\
+-1 &-4 &-1\\
+& \ddots &\ddots &\ddots \\
+   && -1 & -4
+\end{bmatrix} 
+\end{split}\end{equation}
 
 \end{document}
