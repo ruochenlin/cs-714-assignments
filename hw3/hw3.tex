@@ -76,4 +76,14 @@ Thus we have
 \end{equation}
 by Pythagorean Theorem.
 
+\subsection{}
+In the Trapezoidal scheme, we would have 
+\begin{equation}\begin{split}
+    U^{n+1} &= U^n = \dfrac k2 \Big[ \lambda(t_nU^n + \lambda(t_{n+1})U^{n+1})\Big]\\
+    \Longrightarrow
+    \abs{\dfrac{U^{n+1}}{U^n}} &= \abs{\dfrac{1+\dfrac k2\lambda{t_n}}
+        {1-\dfrac k2 \lambda(t_{n+1})}}.
+\end{split}\end{equation}
+Since $\lambda(t)$ can be very different at $t_n$ and $t_{n+1}$, 
+the inequality in \textbf{4.3} is not guaranteed, and thus Trapezoidal Method is not AN-stable.
 \end{document}
