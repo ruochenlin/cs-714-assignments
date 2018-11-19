@@ -36,4 +36,44 @@ Plug this interpolated $f$ into the Newton-Leibniz equation for $u$, we have:
            =&-\dfrac1{12}f(U^{n}) + \dfrac23f(U^{n+1}) + \dfrac5{12}f(U^{n+2}),
 \end{split}\end{equation}
 which is exactly the same as what we got from approach 1.
+
+\pagebreak
+\section{}
+
+\pagebreak
+\section{}
+
+\pagebreak
+\section{}
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+Plug
+\begin{equation}
+    f(t, u) = \lambda(t)u,
+\nonumber\end{equation}
+into the Midpoint Method, we have:
+\begin{equation}
+    U^{n+1} = U^n + k\lambda(t_n + \dfrac k2)\cdot\dfrac{U^n+U^{n+1}}2,
+\nonumber\end{equation}
+or
+\begin{equation}
+    \abs{\dfrac{U^{n+1}}{U^n}} =
+    \abs{\dfrac{1+\dfrac{k\lambda(t_n+\dfrac k2)}2}{1-\dfrac{k\lambda(t_n+\dfrac k2)}2}}.
+\end{equation}
+If $k>0$ and $\operatorname{Re}(\lambda(t)) \leq 0$, we have:
+\begin{equation}\begin{split}
+    \abs{\operatorname{Re}\Big(1+\dfrac{k\lambda(t_n+\dfrac k2)}2\Big)}
+    &\leq\abs{\operatorname{Re}\Big(1-\dfrac{k\lambda(t_n+\dfrac k2)}2\Big)},\\
+    \abs{\operatorname{Im}\Big(1+\dfrac{k\lambda(t_n+\dfrac k2)}2\Big)}
+    &=\abs{\operatorname{Im}\Big(1-\dfrac{k\lambda(t_n+\dfrac k2)}2\Big)}.
+\end{split}\end{equation}
+Thus we have
+\begin{equation}
+    \abs{\dfrac{U^{n+1}}{U^n}} \leq 1
+\end{equation}
+by Pythagorean Theorem.
+
 \end{document}
