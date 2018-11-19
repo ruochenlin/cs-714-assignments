@@ -1,0 +1,39 @@
+\title{CS 714 Assignment 3}
+\author{Ruochen Lin}
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{commath}
+\begin{document}
+\maketitle
+\pagebreak
+
+\section{}
+\subsection{}
+
+\subsection{}
+If we interpolate $f(u(t))$ with a quadratic function
+\begin{equation}
+    f(u(t)) = a(t-t_n)^2 + b(t-t_n) + c
+\end{equation} 
+with $f(u(t_n))=f(U^n)$, $f(u((t_{n+1}))) = f(U^{n+1})$, and 
+$f(u((t_{n+2})) = f(U^{n+2})$, we have:
+\begin{equation}\begin{split}
+    f(U^n) =& c \\
+    f(U^{n+1}) =& ah^2 + bh + c \\
+    f(U^{n+2}) =& 4ah^2 + 2b^h + c,
+\end{split}\end{equation}
+solving which leads to
+\begin{equation}\begin{split}
+    a &= \dfrac{f(U^{n+2}) - 2f(U^{n+1}) + f(U^n)}{2h^2}\\
+    b &= \dfrac{-f(U^{n+2}) + 4f(U^{n+1}) + -3f(U^n)}{2h}\\
+    c &= f(U^n)
+\end{split}\end{equation} 
+Plug this interpolated $f$ into the Newton-Leibniz equation for $u$, we have:
+\begin{equation}\begin{split}
+    U^{n+2}=&U^{n+1}+\int_{t_n+1}^{t_{n+2}}f(u(s))ds\\
+           =&U^{n+1}+\int_h^{2h}(a(t-t_n)^2+b(t-t_n)+c)d(t-t_n)\\
+           =&-\dfrac1{12}f(U^{n}) + \dfrac23f(U^{n+1}) + \dfrac5{12}f(U^{n+2}),
+\end{split}\end{equation}
+which is exactly the same as what we got from approach 1.
+\end{document}
