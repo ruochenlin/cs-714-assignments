@@ -81,6 +81,66 @@ The particular solution would be
 \begin{equation}\begin{split}
     U^n = 3(-2)^n -n (-2)^n +2^n\\
 \end{split}\end{equation} 
+\subsection{}
+The eigenvalues of
+\begin{equation}
+    A = \begin{bmatrix}
+        0 & 1 & 0\\
+        0 & 0 & 1\\
+        8 & 4 & -2
+    \end{bmatrix} 
+\end{equation}
+are $\lambda_1 = -2$, with multiplicity 2, and $\lambda_2 = 2$. In addition, we define
+\begin{equation}\begin{split}
+    r_1 = \begin{bmatrix}
+        1 \\ -2 \\ 4
+    \end{bmatrix},\,\,
+    r_3 = \begin{bmatrix}
+        1 \\ 2 \\ 4
+    \end{bmatrix}, 
+\nonumber\end{split}\end{equation}
+such that $ker(A+2I)=span(r_1)$, $ker(A-2I)=span(r_3)$. 
+Thus its corresponding Jordan canonical form is
+\begin{equation}
+    J=\begin{bmatrix}
+        -2 & 1 & 0\\
+        0 & -2 & 0\\
+        0 & 0 & 2
+    \end{bmatrix}
+\end{equation} 
+To write $A$ in the form of $A=RJR^{-1}$, or $AR=RJ$, we can just pick
+\begin{equation}
+    r_2 = \begin{bmatrix}
+        1 \\ -1 \\ 0
+    \end{bmatrix}
+\nonumber\end{equation}
+to satisfy $Ar_2=r_1-2r_2$. Then $R=\begin{bmatrix}
+    r_1 & r_2 & r_3
+\end{bmatrix}$
+and $A=RJR^{-1}$. Then if we define $V_n=\begin{bmatrix}
+    U^n & U^{n+1} & U^{n+2}
+\end{bmatrix}^T$, then any solution would have to satisfy
+\begin{equation}
+    V_{n+1} = AV_n = RJR^{-1}V_n.
+\end{equation}
+Given the initial values $V_0$, we have
+\begin{equation}\begin{split}
+    V_n = RJ^nR^{-1}V_0,
+\end{split}\end{equation}
+with
+\begin{equation}
+    J^n = \begin{bmatrix}
+        (-2)^n & n(-2)^{n-1} & 0\\
+        0 & (-2)^n & 0\\
+        0 & 0 & 2^n
+    \end{bmatrix}.
+\end{equation}
+$R$ and $R^{-1}$ are bijective linear transforms and $V_0$ can be any initial value, 
+so the general solution can be written as
+\begin{equation}
+    V_n = c_1(-2)^n + c_2n(-2)^{n-1} + c_32^n.
+\end{equation}
+This corresponds to our general solution in \textbf{2.1} with $c_1=a$, $-2c_2=b$, $c_3=c$.
 
 \pagebreak
 \section{}
@@ -90,6 +150,7 @@ The particular solution would be
 \subsection{}
 
 \subsection{}
+Suppose $u'=\lambda u$, then we have
 
 \subsection{}
 Plug
