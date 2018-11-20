@@ -148,9 +148,31 @@ This corresponds to our general solution in \textbf{2.1} with $c_1=a$, $-2c_2=b$
 \pagebreak
 \section{}
 \subsection{}
+The local truncation error can be written as
+\begin{equation}\begin{split}
+    \tau(k) =& u(t_{n+1})-u(t_n)-kf\Big(\dfrac{u(t_n)+u(t_{n+1})}2,t_n+\dfrac k2\Big)\\
+            =& kf\Big(u(\dfrac{t_n+t_{n+1}}2),t_n+\dfrac k2\Big)\\
+             & -kf\Big(\dfrac{u(t_n)+u(t_{n+1})}2,t_n+\dfrac k2\Big)+O(k^3),\\
+\end{split}\end{equation}
+in which we expanded $u$ around $t_n+\dfrac k2$. Also,
+\begin{equation}\begin{split}
+    &f\Big(u(\dfrac{t_n+t_{n+1}}2),t_n+\dfrac k2\Big) - 
+        f\Big(\dfrac{u(t_n)+u(t_{n+1})}2,t_n+\dfrac k2\Big) \\
+    =&\dfrac{\partial f}{\partial u}\cdot\Big[u(t_n+\dfrac k2) -
+        \dfrac{u(t_n)+u(t_{n+1})}2\Big] = O(k^2).
+\end{split}\end{equation}
+Thus $\tau(k)=O(k^3)$ (???) and the Midpoint Method is (at least?) second order accurate.
 
 \subsection{}
 Suppose $u'=\lambda u$, then we have
+\begin{equation}
+    U^{n+1} = \dfrac{1+\dfrac{k\lambda}2}{1-\dfrac{k\lambda}2}U^n.
+\end{equation}
+For $z=k\lambda$ such that $\operatorname{Re}(z)\leq0$, we have 
+\begin{equation}
+    \abs{\dfrac{1+\dfrac z2}{1-\dfrac z2}} \leq 1.
+\end{equation}
+Thus Midpoint method is A-stable.
 
 \subsection{}
 Plug
