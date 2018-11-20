@@ -10,6 +10,30 @@
 
 \section{}
 \subsection{}
+In Adams-Moulton methods, we get
+\begin{equation}
+    \sum_{j=0}^r \alpha_j = 0
+\end{equation}
+for free, and in the 2-step scheme we have
+\begin{equation}
+\alpha_0 = 0,\,\alpha_1 = -1,\,\alpha_2 = 1.
+\nonumber\end{equation}
+We can pick $\{\beta_j\}_{j=0}^2$ such that
+\begin{equation}\begin{split}
+    &\sum_{j=0}^2\beta_j = \alpha_1 + 2\alpha_2 = 1,\\
+    &\sum_{j=0}^2 j\beta_j = \dfrac12\alpha_1+2\alpha_2 = \dfrac32,\\
+    &3\sum_{j=0}^2 j^2\beta_j = \alpha_1+ 8\alpha_2 = 7,
+\end{split}\end{equation}
+which leads to
+\begin{equation}
+    \beta_0 = -\dfrac1{12},\,\beta_1 = \dfrac23,\,\beta_2 = \dfrac5{12}
+\nonumber\end{equation}
+so that
+\begin{equation}
+    U^{n+2} = U^{n+1} + k\Big[-\dfrac1{12} f(U^n) + \dfrac23f(U^{n+1})
+        + \dfrac5{12}f(U^{n+2})\Big].
+\end{equation}
+
 
 \subsection{}
 If we interpolate $f(u(t))$ with a quadratic function
@@ -19,21 +43,21 @@ If we interpolate $f(u(t))$ with a quadratic function
 with $f(u(t_n))=f(U^n)$, $f(u((t_{n+1}))) = f(U^{n+1})$, and 
 $f(u((t_{n+2})) = f(U^{n+2})$, we have:
 \begin{equation}\begin{split}
-    f(U^n) =& c \\
-    f(U^{n+1}) =& ah^2 + bh + c \\
+    f(U^n) =& c,\\
+    f(U^{n+1}) =& ah^2 + bh + c,\\
     f(U^{n+2}) =& 4ah^2 + 2b^h + c,
 \end{split}\end{equation}
 solving which leads to
 \begin{equation}\begin{split}
-    a &= \dfrac{f(U^{n+2}) - 2f(U^{n+1}) + f(U^n)}{2h^2}\\
-    b &= \dfrac{-f(U^{n+2}) + 4f(U^{n+1}) + -3f(U^n)}{2h}\\
-    c &= f(U^n)
+    a &= \dfrac{f(U^{n+2}) - 2f(U^{n+1}) + f(U^n)}{2h^2},\\
+    b &= \dfrac{-f(U^{n+2}) + 4f(U^{n+1}) + -3f(U^n)}{2h},\\
+    c &= f(U^n).
 \end{split}\end{equation} 
 Plug this interpolated $f$ into the Newton-Leibniz equation for $u$, we have:
 \begin{equation}\begin{split}
     U^{n+2}=&U^{n+1}+\int_{t_n+1}^{t_{n+2}}f(u(s))ds\\
            =&U^{n+1}+\int_h^{2h}(a(t-t_n)^2+b(t-t_n)+c)d(t-t_n)\\
-           =&-\dfrac1{12}f(U^{n}) + \dfrac23f(U^{n+1}) + \dfrac5{12}f(U^{n+2}),
+           =&k\Big[-\dfrac1{12}f(U^{n}) + \dfrac23f(U^{n+1}) + \dfrac5{12}f(U^{n+2})\Big],
 \end{split}\end{equation}
 which is exactly the same as what we got from approach 1.
 
