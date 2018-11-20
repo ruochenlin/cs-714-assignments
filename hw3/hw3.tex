@@ -148,8 +148,34 @@ This corresponds to our general solution in \textbf{2.1} with $c_1=a$, $-2c_2=b$
 We have
 \begin{equation}\begin{split}
     &u(t+\dfrac k2)-u(t_n)-\dfrac k4\big[u'(t_n)+u'(t_n+\dfrac k2)\big]\\
+    =&\dfrac k2u'(t_k+\dfrac k4)+O(k^3)-\dfrac k4\big[2u'(t_n+\dfrac k4)+\dfrac{k^2}{16}u^{(3)}(t_n+\dfrac k4)+O(k^4)\big]\\
+    =&-\dfrac{k^3}{64}u^{(3)}(t_n+\dfrac k4) + O(k^3) = O(k^3)
+\end{split}\end{equation} 
+and
+\begin{equation}
+    u^*-u(t_n)-\dfrac k4\big[u'(t_n)+f(u^*)\big] = 0
+\end{equation}
+Assuming $f(u)=u'=\lambda u$, we have
+\begin{equation}\begin{split}
+    &u(t+\dfrac k2) - u^* -\dfrac k4\big[f(u(t_n+\dfrac k2)-f(u^*))\big]\\
+    =&u(t+\dfrac k2)-u^*-\dfrac{k\lambda}4\big[u(t_n+\dfrac k2)-u^*\big]\\
+    =&(1-\dfrac{k\lambda}4)\big[u(t_n+\dfrac k2)-u^*\big]=O(k^3),\\
+\end{split}\nonumber\end{equation}
+so that
+\begin{equation}
+    u^* = u(t_n+\dfrac k2) + O(k^3).
+\end{equation} 
+In the second step, we have 
+\begin{equation}\begin{split}
+    \tau(k) &= 3u(t_n+k)-4u^*+u(t_n)-ku'(t_n+k)\\
+            &= 3u(t_n+k)-4u(t_n+\dfrac k2)+u(t_n)-ku'(t_{n+1}) + O(k^3)\\
+            &=ku'(t_n+\dfrac k2)\big[\dfrac32-\dfrac12-1\big] +
+                k^2u''(t_n+\dfrac k2)\big[\dfrac38+\dfrac18-\dfrac12\big]+O(k^3)\\
+            &=O(k^3)
+\end{split}\end{equation} 
+Thus TD-BDF2 is third-order accurate(??).
+\subsection{}
 
-\end{split}\nonumber\end{equation} 
 
 \pagebreak
 \section{}
