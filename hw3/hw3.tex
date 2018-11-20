@@ -175,7 +175,19 @@ In the second step, we have
 \end{split}\end{equation} 
 Thus TD-BDF2 is third-order accurate(??).
 \subsection{}
-
+Suppose $u'=\lambda u$, then 
+\begin{equation}\begin{split}
+    U^* &= \dfrac{1+\dfrac{k\lambda}4}{1-\dfrac{k\lambda}4}U^n,\\
+    U^{n+1} &= \dfrac{2k\lambda}{(3+k\lambda)(4-k\lambda)}U^n
+\end{split}\end{equation} 
+To satisfy stability, we define $z=k\lambda$ and require
+\begin{equation}
+    \abs{\dfrac{2z}{(3-z)(4-z)}}\leq 1.
+\end{equation} 
+We can verify its $A$-stability: if $\operatorname{Re}(z)<0$, then 
+The denominator is quadratic in $z$ while the numerator is only linear, 
+so as $\abs{z}\to\infty$ the ratio would tend to 0, satisfying our requirement 
+for $L$-stability.
 
 \pagebreak
 \section{}
